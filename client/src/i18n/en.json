@@ -1,0 +1,177 @@
+{
+  "nav": {
+    "label": "Primary navigation",
+    "home": "Home",
+    "about": "About",
+    "collection": "Collection",
+    "whyUs": "Why Us",
+    "testimonials": "Testimonials",
+    "wellness": "Wellness",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "preorder": "Pre-order",
+    "preorderCta": "Pre-order Now",
+    "switchLanguage": "Switch language",
+    "toggleMobile": "Toggle mobile navigation"
+  },
+  "hero": {
+    "titleAccent": "Himalayan Honey, ",
+    "titleTail": "Reimagined.",
+    "subtitle": "Nature’s luxury, from the Himalayas to your home.",
+    "ctaPrimary": "Explore Our Collection",
+    "meta": "Limited seasonal batches • Traceable to valley & harvest date",
+    "imageAlt": "Himalayan Blossom hero"
+  },
+  "specialOffer": {
+    "title": "Limited Time Offer!",
+    "description": "Pre-order any single jar of our Himalayan honey and receive a FREE tasting sample kit with all nine of our rare honey varieties!",
+    "cta": "Choose Your Honey & Claim Your Free Gift"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitlePrefix": "Meet",
+    "subtitle": "Deen Dayal & The Hive",
+    "description": "Deen Dayal has spent over 20 years hand-tending Himalayan hives. Blending ancestral beekeeping with modern AI hive monitoring, he harvests honey that is pure, raw, and traceable to a single valley. Our mission is to empower local farmers with sustainable livelihoods, bring beekeeping education to schools, and deliver an ethical luxury honey to homes worldwide.",
+    "founderTitle": "Founder",
+    "founderSubtitle": "Deen Dayal — the \"Bee Father of India\"",
+    "primaryImageAlt": "Deen Dayal tending Himalayan beehives",
+    "secondaryImageAlt": "Bees and bloom in Himalayan valley",
+    "videoLabel": "Watch founder video"
+  },
+  "whyUs": {
+    "title": "Why Choose Himalayan Blossom",
+    "description": "Pure, small-batch honey crafted with care — traceable to valley and harvest, ethically harvested, and presented in luxury packaging for a thoughtful unboxing.",
+    "cta": "Learn More",
+    "features": {
+      "purityTraceability": {
+        "title": "Purity & Traceability",
+        "description": "Raw, unfiltered honey sourced from named Himalayan valleys — each small batch is traceable back to the farm and seasonal harvest."
+      },
+      "ethicalHarvesting": {
+        "title": "Ethical Harvesting",
+        "description": "Sustainable beekeeping methods protect pollinators and wild ecosystems, ensuring gentle extraction that preserves every natural enzyme."
+      },
+      "wildBotanicals": {
+        "title": "Wild Botanicals",
+        "description": "Each honey carries the floral signature of rare Himalayan botanicals — a terroir-driven tasting journey across valleys and elevations."
+      },
+      "wellnessScience": {
+        "title": "Wellness Backed by Science",
+        "description": "Every variety is lab-tested for potency — from immune support to adaptogenic benefits, each jar is a functional wellness ritual."
+      },
+      "communityImpact": {
+        "title": "Community Impact",
+        "description": "Pre-orders support farmer training, AI-assisted hive monitoring, and school programs that inspire the next generation of beekeepers."
+      },
+      "luxuryPackaging": {
+        "title": "Luxury Packaging & Exclusive Batches",
+        "description": "Hand-numbered jars, natural-linen labels, wooden lids and a wax-sealed story-tag — every order is an experience."
+      }
+    }
+  },
+  "collection": {
+    "title": "Our Himalayan Treasures",
+    "subtitlePrefix": "Discover",
+    "subtitle": "Nine Rare Honeys",
+    "rememberLabel": "Remember:",
+    "rememberCopy": "Every pre-order includes a complimentary tasting kit of all nine honey varieties!",
+    "cta": "Pre-order Now"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "introPrefix": "What Our",
+    "introHighlight": "Customers Say"
+  },
+  "artisans": {
+    "title": "Our Artisan Collective",
+    "subtitlePrefix": "Meet",
+    "subtitle": "The Team Behind Every Jar"
+  },
+  "preorder": {
+    "title": "Pre-order & Tasting Samples",
+    "subtitlePrefix": "Reserve",
+    "subtitle": "Your Limited Batch",
+    "calloutHeading": "Your Pre-Order Includes a Free Sample Kit!",
+    "calloutCopy": "Select your favorite honey below to pre-order. We'll automatically include a tasting kit with all nine varieties with your shipment, absolutely free.",
+    "fields": {
+      "name": { "placeholder": "Your Name" },
+      "email": { "placeholder": "Your Email" },
+      "phone": { "placeholder": "Phone (optional)" },
+      "product": { "placeholder": "Select Honey Variant" },
+      "quantity": { "placeholder": "Quantity" },
+      "city": { "placeholder": "City / State" },
+      "message": { "placeholder": "Any special instructions or gifting notes" }
+    },
+    "status": {
+      "loading": "Loading",
+      "success": "Thank you! Your pre-order has been received. We've included your FREE tasting kit with all nine honey varieties.",
+      "error": "Something went wrong. Please try again."
+    },
+    "cta": "Reserve a Sample & Pre-order"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitlePrefix": "Explore",
+    "subtitle": "Our Valleys & Harvests"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitlePrefix": "Connect",
+    "subtitle": "With Our Hive",
+    "address": {
+      "title": "Address",
+      "line1": "Sample Valley Apiaries",
+      "line2": "Kullu, Himachal Pradesh, India"
+    },
+    "phone": {
+      "title": "Contact",
+      "label": "Phone:",
+      "value": "+91 98765 43210"
+    },
+    "email": {
+      "label": "Email:",
+      "value": "hello@himalayanblossom.com"
+    },
+    "hours": {
+      "title": "Opening Hours",
+      "weekdays": { "label": "Mon-Sat:", "value": "09:00 - 18:00" },
+      "weekend": { "label": "Sunday:", "value": "Closed" }
+    },
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "status": {
+      "loading": "Loading",
+      "success": "Your message has been sent. We will get back to you shortly!",
+      "error": "Something went wrong. Please try again."
+    },
+    "cta": "Send Message"
+  },
+  "footer": {
+    "address": {
+      "title": "Address",
+      "line1": "Sample Valley Apiaries",
+      "line2": "Kullu, Himachal Pradesh, India"
+    },
+    "contact": {
+      "title": "Contact",
+      "phoneLabel": "Phone:",
+      "phoneValue": "+91 98765 43210",
+      "emailLabel": "Email:",
+      "emailValue": "hello@himalayanblossom.com"
+    },
+    "hours": {
+      "title": "Opening Hours",
+      "weekdaysLabel": "Mon-Sat:",
+      "weekdaysValue": "09:00 - 18:00",
+      "weekendLabel": "Sunday:",
+      "weekendValue": "Closed"
+    },
+    "followTitle": "Follow Us",
+    "copyrightLabel": "Copyright",
+    "rights": "All Rights Reserved"
+  }
+}

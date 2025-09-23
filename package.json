@@ -1,0 +1,20 @@
+{
+  "name": "mern-boilerplate",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Boilerplate MERN stack project with Express API and Vite React frontend",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "prepare": "npm install --prefix server && npm install --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
