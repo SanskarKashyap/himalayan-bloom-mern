@@ -1,4 +1,5 @@
 import { TESTIMONIALS } from '../../../data/testimonials.js';
+import SectionHeader from '../../shared/SectionHeader.jsx';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
 import { useSwiper } from '../../../hooks/useSwiper.js';
 
@@ -7,65 +8,68 @@ export default function TestimonialsSection() {
   useSwiper('#testimonials .init-swiper');
 
   return (
-    <section id="testimonials" className="testimonials section light-background">
-      <div className="container section-title" data-aos="fade-up">
-        <h2>{t('testimonials.title')}</h2>
-        <p>
-          {t('testimonials.introPrefix')}{' '}
-          <span className="description-title">{t('testimonials.introHighlight')}</span>
-        </p>
-      </div>
+    <section id="testimonials" className="py-24 sm:py-28">
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+        <SectionHeader
+          eyebrow={t('testimonials.introPrefix')}
+          title={t('testimonials.title')}
+          subheading={t('testimonials.introHighlight')}
+          description={t('testimonials.subtitle')}
+        />
 
-      <div className="container" data-aos="fade-up" data-aos-delay="100">
-        <div className="swiper init-swiper">
-          <div
-            className="swiper-config"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                loop: true,
-                speed: 600,
-                autoplay: { delay: 5000 },
-                slidesPerView: 'auto',
-                pagination: {
-                  el: '.swiper-pagination',
-                  type: 'bullets',
-                  clickable: true,
-                },
-              }),
-            }}
-          />
-          <div className="swiper-wrapper">
-            {TESTIMONIALS.map((testimonial) => (
-              <div key={testimonial.name.en} className="swiper-slide">
-                <div className="testimonial-item">
-                  <div className="row gy-4 justify-content-center">
-                    <div className="col-lg-6">
-                      <div className="testimonial-content">
-                        <p>
-                          <i className="bi bi-quote quote-icon-left" />
-                          <span>{testimonial.quote[locale]}</span>
-                          <i className="bi bi-quote quote-icon-right" />
+        <div className="mt-12" data-aos="fade-up" data-aos-delay="120">
+          <div className="swiper init-swiper">
+            <div
+              className="swiper-config"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  loop: true,
+                  speed: 600,
+                  autoplay: { delay: 6000 },
+                  slidesPerView: 'auto',
+                  spaceBetween: 32,
+                  pagination: {
+                    el: '.swiper-pagination',
+                    type: 'bullets',
+                    clickable: true,
+                  },
+                }),
+              }}
+            />
+            <div className="swiper-wrapper">
+              {TESTIMONIALS.map((testimonial) => (
+                <div key={testimonial.name.en} className="swiper-slide !w-auto px-2 py-4 sm:px-4">
+                  <article className="flex h-full w-[320px] flex-col gap-6 rounded-[2rem] border border-white/60 bg-white/90 p-8 shadow-royal transition duration-500 ease-soft-spring hover:-translate-y-1 hover:shadow-royal dark:border-white/10 dark:bg-white/5 sm:w-[380px]">
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name[locale]}
+                        className="h-16 w-16 rounded-2xl object-cover"
+                      />
+                      <div>
+                        <h3 className="font-heading text-lg text-royal-heading dark:text-royal-white">
+                          {testimonial.name[locale]}
+                        </h3>
+                        <p className="text-sm text-royal-muted dark:text-royal-white/70">
+                          {testimonial.title[locale]}
                         </p>
-                        <h3>{testimonial.name[locale]}</h3>
-                        <h4>{testimonial.title[locale]}</h4>
-                        <div className="stars">
-                          <i className="bi bi-star-fill" />
-                          <i className="bi bi-star-fill" />
-                          <i className="bi bi-star-fill" />
-                          <i className="bi bi-star-fill" />
-                          <i className="bi bi-star-fill" />
-                        </div>
                       </div>
                     </div>
-                    <div className="col-lg-2 text-center">
-                      <img src={testimonial.image} className="img-fluid testimonial-img" alt={testimonial.name[locale]} />
+                    <p className="flex-1 text-sm leading-relaxed text-royal-muted dark:text-royal-white/70">
+                      <span className="mr-2 text-3xl text-royal-gold">“</span>
+                      {testimonial.quote[locale]}
+                    </p>
+                    <div className="flex items-center gap-2 text-royal-gold">
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <i key={`star-${testimonial.name.en}-${index}`} className="bi bi-star-fill" />
+                      ))}
                     </div>
-                  </div>
+                  </article>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="swiper-pagination !relative !mt-8" />
           </div>
-          <div className="swiper-pagination" />
         </div>
       </div>
     </section>

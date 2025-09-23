@@ -1,12 +1,87 @@
-* {
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-royal-cream text-royal-ink font-sans antialiased min-h-screen;
+    background-image: theme('backgroundImage.royal-gradient');
+  }
+
+  .dark body {
+    @apply bg-royal-night text-royal-muted;
+    background-image: none;
+    background-color: #0f0a1f;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading text-royal-heading tracking-tight;
+  }
+
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    @apply text-royal-white;
+  }
+
+  a {
+    @apply text-royal-ink no-underline transition-colors duration-300 ease-soft-spring;
+  }
+
+  .dark a {
+    @apply text-royal-white;
+  }
+
+  a:hover {
+    @apply text-royal-gold;
+  }
+
+  ::selection {
+    background-color: rgba(212, 175, 55, 0.25);
+    color: #0f0a1f;
+  }
 }
 
-body {
-  margin: 0;
-  font-family: inherit;
-}
+@layer components {
+  .btn-royal {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-royal-gold px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-royal-night shadow-royal-soft transition-all duration-500 ease-soft-spring;
+  }
 
-a {
-  color: inherit;
+  .btn-royal:hover,
+  .btn-royal:focus-visible {
+    @apply translate-y-[-3px] bg-amber-400 shadow-royal;
+  }
+
+  .card-royal {
+    @apply rounded-3xl bg-white/90 backdrop-blur border border-white/60 shadow-royal transition-all duration-500 ease-soft-spring;
+  }
+
+  .dark .card-royal {
+    @apply bg-royal-night-soft/90 border-white/5 shadow-royal-glow;
+  }
 }

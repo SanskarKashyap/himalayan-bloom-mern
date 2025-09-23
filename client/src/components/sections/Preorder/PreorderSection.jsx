@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import reservationImage from '../../../static-bootstrap/assets/img/reservation.jpg';
+import SectionHeader from '../../shared/SectionHeader.jsx';
 import { apiService } from '../../../services/ApiService.js';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
 import { PRODUCTS } from '../../../data/products.js';
+import { SelectInput, TextArea, TextInput } from '../../shared/FormControls.jsx';
 
 const INITIAL_FORM = {
   name: '',
@@ -49,124 +51,113 @@ export default function PreorderSection() {
   }
 
   return (
-    <section id="preorder" className="book-a-table section">
-      <div className="container section-title" data-aos="fade-up">
-        <h2>{t('preorder.title')}</h2>
-        <p>
-          <span>{t('preorder.subtitlePrefix')}</span>
-          <span className="description-title">{t('preorder.subtitle')}</span>
-        </p>
-      </div>
+    <section id="preorder" className="py-24 sm:py-28">
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+        <SectionHeader
+          eyebrow={t('preorder.subtitlePrefix')}
+          title={t('preorder.title')}
+          subheading={t('preorder.subtitle')}
+          description={t('preorder.calloutCopy')}
+          alignment="left"
+        />
 
-      <div className="container">
-        <div className="text-center mb-4" data-aos="fade-up" data-aos-delay="50">
-          <h4>{t('preorder.calloutHeading')}</h4>
-          <p>{t('preorder.calloutCopy')}</p>
-        </div>
+        <div className="mt-12 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+          <div className="relative overflow-hidden rounded-[2.5rem] border border-white/50 bg-white/40 shadow-royal dark:border-white/10 dark:bg-white/5">
+            <img src={reservationImage} alt="Preorder" className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-royal-night via-royal-night/20 to-transparent" />
+            <div className="absolute bottom-8 left-8 right-8 rounded-[1.8rem] border border-white/40 bg-white/15 p-6 backdrop-blur-lg text-white">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/80">
+                {t('preorder.calloutHeading')}
+              </p>
+              <p className="mt-2 text-lg font-heading">
+                {t('preorder.calloutHighlight') ?? 'Delivering first press honey from 3,400m orchards'}
+              </p>
+            </div>
+          </div>
 
-        <div className="row g-0" data-aos="fade-up" data-aos-delay="100">
-          <div className="col-lg-4 reservation-img" style={{ backgroundImage: `url(${reservationImage})` }} aria-hidden="true" />
-
-          <div className="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
-            <form className="php-email-form" onSubmit={handleSubmit}>
-              <div className="row gy-4">
-                <div className="col-lg-6 col-md-6">
-                  <input
-                    type="text"
-                    name="name"
-                    className="form-control"
-                    placeholder={t('preorder.fields.name.placeholder')}
-                    value={formState.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="col-lg-6 col-md-6">
-                  <input
-                    type="email"
-                    name="email"
-                    className="form-control"
-                    placeholder={t('preorder.fields.email.placeholder')}
-                    value={formState.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                <div className="col-lg-6 col-md-6">
-                  <input
-                    type="tel"
-                    name="phone"
-                    className="form-control"
-                    placeholder={t('preorder.fields.phone.placeholder')}
-                    value={formState.phone}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div className="col-lg-6 col-md-6">
-                  <select
-                    className="form-control"
-                    name="product"
-                    value={formState.product}
-                    onChange={handleChange}
-                    required
-                  >
-                    <option value="">{t('preorder.fields.product.placeholder')}</option>
-                    {productOptions.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="col-lg-6 col-md-6">
-                  <input
-                    type="number"
-                    name="quantity"
-                    className="form-control"
-                    min="1"
-                    max="6"
-                    placeholder={t('preorder.fields.quantity.placeholder')}
-                    value={formState.quantity}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                <div className="col-lg-6 col-md-6">
-                  <input
-                    type="text"
-                    name="city"
-                    className="form-control"
-                    placeholder={t('preorder.fields.city.placeholder')}
-                    value={formState.city}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="form-group mt-3">
-                <textarea
-                  className="form-control"
-                  name="message"
-                  rows="4"
-                  placeholder={t('preorder.fields.message.placeholder')}
-                  value={formState.message}
+          <div className="card-royal rounded-[2.5rem] p-8 sm:p-10">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <TextInput
+                  name="name"
+                  type="text"
+                  placeholder={t('preorder.fields.name.placeholder')}
+                  value={formState.name}
                   onChange={handleChange}
+                  required
+                />
+                <TextInput
+                  name="email"
+                  type="email"
+                  placeholder={t('preorder.fields.email.placeholder')}
+                  value={formState.email}
+                  onChange={handleChange}
+                  required
+                />
+                <TextInput
+                  name="phone"
+                  type="tel"
+                  placeholder={t('preorder.fields.phone.placeholder')}
+                  value={formState.phone}
+                  onChange={handleChange}
+                />
+                <SelectInput
+                  name="product"
+                  value={formState.product}
+                  onChange={handleChange}
+                  options={productOptions}
+                  placeholder={t('preorder.fields.product.placeholder')}
+                  required
+                />
+                <TextInput
+                  name="quantity"
+                  type="number"
+                  min={1}
+                  max={6}
+                  placeholder={t('preorder.fields.quantity.placeholder')}
+                  value={formState.quantity}
+                  onChange={handleChange}
+                  required
+                />
+                <TextInput
+                  name="city"
+                  type="text"
+                  placeholder={t('preorder.fields.city.placeholder')}
+                  value={formState.city}
+                  onChange={handleChange}
+                  required
                 />
               </div>
 
-              <div className="text-center mt-3">
-                {status === 'loading' && <div className="loading">{t('preorder.status.loading')}</div>}
-                {status === 'error' && <div className="error-message">{error || t('preorder.status.error')}</div>}
-                {status === 'success' && <div className="sent-message">{t('preorder.status.success')}</div>}
-                <button type="submit" disabled={status === 'loading'}>
-                  {t('preorder.cta')}
-                </button>
+              <TextArea
+                name="message"
+                rows={4}
+                placeholder={t('preorder.fields.message.placeholder')}
+                value={formState.message}
+                onChange={handleChange}
+              />
+
+              <div className="space-y-3 text-sm">
+                {status === 'loading' && (
+                  <p className="inline-flex items-center gap-2 text-royal-gold">
+                    <i className="bi bi-arrow-repeat animate-spin" /> {t('preorder.status.loading')}
+                  </p>
+                )}
+                {status === 'error' && (
+                  <p className="rounded-2xl border border-red-200/60 bg-red-50/80 px-4 py-3 text-red-700 dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-200">
+                    {error || t('preorder.status.error')}
+                  </p>
+                )}
+                {status === 'success' && (
+                  <p className="rounded-2xl border border-emerald-200/60 bg-emerald-50/80 px-4 py-3 text-emerald-700 dark:border-emerald-500/40 dark:bg-emerald-500/10 dark:text-emerald-200">
+                    {t('preorder.status.success')}
+                  </p>
+                )}
               </div>
+
+              <button type="submit" className="btn-royal w-full justify-center" disabled={status === 'loading'}>
+                {t('preorder.cta')}
+              </button>
             </form>
           </div>
         </div>

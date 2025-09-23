@@ -17,6 +17,7 @@ import Preloader from './components/shared/Preloader/Preloader.jsx';
 import { useAOS } from './hooks/useAOS.js';
 import { useLightbox } from './hooks/useLightbox.js';
 import { LanguageProvider } from './contexts/LanguageContext.jsx';
+import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import fallbackHtml from './static-bootstrap/index.html?raw';
 
 import './App.css';
@@ -52,10 +53,10 @@ function AppShell() {
   useLightbox({ selector: '.glightbox' });
 
   return (
-    <div className="hb-app">
+    <div className="relative flex min-h-screen flex-col">
       <Preloader />
       <Header />
-      <main>
+      <main className="flex flex-col gap-24 sm:gap-28">
         <Hero />
         <SpecialOffer />
         <AboutSection />
@@ -78,7 +79,9 @@ export default function App() {
   return (
     <AppErrorBoundary fallback={<FallbackStaticMarkup />}>
       <LanguageProvider>
-        <AppShell />
+        <ThemeProvider>
+          <AppShell />
+        </ThemeProvider>
       </LanguageProvider>
     </AppErrorBoundary>
   );

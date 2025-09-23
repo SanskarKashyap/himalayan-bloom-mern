@@ -12,7 +12,8 @@
     "preorder": "Pre-order",
     "preorderCta": "Pre-order Now",
     "switchLanguage": "Switch language",
-    "toggleMobile": "Toggle mobile navigation"
+    "toggleMobile": "Toggle mobile navigation",
+    "toggleTheme": "Toggle color theme"
   },
   "hero": {
     "titleAccent": "Himalayan Honey, ",
@@ -20,12 +21,18 @@
     "subtitle": "Nature’s luxury, from the Himalayas to your home.",
     "ctaPrimary": "Explore Our Collection",
     "meta": "Limited seasonal batches • Traceable to valley & harvest date",
-    "imageAlt": "Himalayan Blossom hero"
+    "imageAlt": "Himalayan Blossom hero",
+    "videoLabel": "Watch the beekeeper's story",
+    "statPurity": "Single origin",
+    "statAltitude": "3400m altitude",
+    "statHarvest": "Cold extracted"
   },
   "specialOffer": {
     "title": "Limited Time Offer!",
     "description": "Pre-order any single jar of our Himalayan honey and receive a FREE tasting sample kit with all nine of our rare honey varieties!",
-    "cta": "Choose Your Honey & Claim Your Free Gift"
+    "cta": "Choose Your Honey & Claim Your Free Gift",
+    "badge": "Limited release",
+    "meta": "Complimentary tasting kit • Ships March 2025"
   },
   "about": {
     "title": "About Us",
@@ -36,7 +43,10 @@
     "founderSubtitle": "Deen Dayal — the \"Bee Father of India\"",
     "primaryImageAlt": "Deen Dayal tending Himalayan beehives",
     "secondaryImageAlt": "Bees and bloom in Himalayan valley",
-    "videoLabel": "Watch founder video"
+    "videoLabel": "Watch founder video",
+    "heritage": "Apiculture heritage • Est. 1999",
+    "badgeLabel": "Slow Food certified",
+    "badgeValue": "Ethically harvested & lab verified"
   },
   "whyUs": {
     "title": "Why Choose Himalayan Blossom",
@@ -67,7 +77,10 @@
         "title": "Luxury Packaging & Exclusive Batches",
         "description": "Hand-numbered jars, natural-linen labels, wooden lids and a wax-sealed story-tag — every order is an experience."
       }
-    }
+    },
+    "eyebrow": "Why choose us",
+    "ctaTitle": "A rare terroir, bottled with integrity",
+    "ctaDescription": "From hive health tracking to slow, cold extraction, every jar is an ode to Himalayan ecology and ancestral craft."
   },
   "collection": {
     "title": "Our Himalayan Treasures",
@@ -75,17 +88,20 @@
     "subtitle": "Nine Rare Honeys",
     "rememberLabel": "Remember:",
     "rememberCopy": "Every pre-order includes a complimentary tasting kit of all nine honey varieties!",
-    "cta": "Pre-order Now"
+    "cta": "Pre-order Now",
+    "badge": "Limited batch"
   },
   "testimonials": {
     "title": "Testimonials",
     "introPrefix": "What Our",
-    "introHighlight": "Customers Say"
+    "introHighlight": "Customers Say",
+    "subtitle": "Loved by chefs and wellness seekers worldwide."
   },
   "artisans": {
     "title": "Our Artisan Collective",
     "subtitlePrefix": "Meet",
-    "subtitle": "The Team Behind Every Jar"
+    "subtitle": "The Team Behind Every Jar",
+    "description": "Generational beekeepers, botanists, and storytellers nurturing Himalayan pollinator corridors."
   },
   "preorder": {
     "title": "Pre-order & Tasting Samples",
@@ -94,25 +110,41 @@
     "calloutHeading": "Your Pre-Order Includes a Free Sample Kit!",
     "calloutCopy": "Select your favorite honey below to pre-order. We'll automatically include a tasting kit with all nine varieties with your shipment, absolutely free.",
     "fields": {
-      "name": { "placeholder": "Your Name" },
-      "email": { "placeholder": "Your Email" },
-      "phone": { "placeholder": "Phone (optional)" },
-      "product": { "placeholder": "Select Honey Variant" },
-      "quantity": { "placeholder": "Quantity" },
-      "city": { "placeholder": "City / State" },
-      "message": { "placeholder": "Any special instructions or gifting notes" }
+      "name": {
+        "placeholder": "Your Name"
+      },
+      "email": {
+        "placeholder": "Your Email"
+      },
+      "phone": {
+        "placeholder": "Phone (optional)"
+      },
+      "product": {
+        "placeholder": "Select Honey Variant"
+      },
+      "quantity": {
+        "placeholder": "Quantity"
+      },
+      "city": {
+        "placeholder": "City / State"
+      },
+      "message": {
+        "placeholder": "Any special instructions or gifting notes"
+      }
     },
     "status": {
       "loading": "Loading",
       "success": "Thank you! Your pre-order has been received. We've included your FREE tasting kit with all nine honey varieties.",
       "error": "Something went wrong. Please try again."
     },
-    "cta": "Reserve a Sample & Pre-order"
+    "cta": "Reserve a Sample & Pre-order",
+    "calloutHighlight": "Delivering first-press honey from 3,400m orchards"
   },
   "gallery": {
     "title": "Gallery",
     "subtitlePrefix": "Explore",
-    "subtitle": "Our Valleys & Harvests"
+    "subtitle": "Our Valleys & Harvests",
+    "description": "Snapshots from misted orchards, night harvests, and the artisans who tend each hive."
   },
   "contact": {
     "title": "Contact",
@@ -134,8 +166,14 @@
     },
     "hours": {
       "title": "Opening Hours",
-      "weekdays": { "label": "Mon-Sat:", "value": "09:00 - 18:00" },
-      "weekend": { "label": "Sunday:", "value": "Closed" }
+      "weekdays": {
+        "label": "Mon-Sat:",
+        "value": "09:00 - 18:00"
+      },
+      "weekend": {
+        "label": "Sunday:",
+        "value": "Closed"
+      }
     },
     "form": {
       "name": "Your Name",
@@ -148,7 +186,9 @@
       "success": "Your message has been sent. We will get back to you shortly!",
       "error": "Something went wrong. Please try again."
     },
-    "cta": "Send Message"
+    "cta": "Send Message",
+    "description": "We’re headquartered in Kullu valley with satellite apiaries across Himachal. Reach out for tastings, wholesale, or collaborations.",
+    "mapPlaceholder": "Loading valley coordinates"
   },
   "footer": {
     "address": {
@@ -172,6 +212,14 @@
     },
     "followTitle": "Follow Us",
     "copyrightLabel": "Copyright",
-    "rights": "All Rights Reserved"
+    "rights": "All Rights Reserved",
+    "followDescription": "Join our hive for seasonal drops and apiary immersions.",
+    "tagline": "Wild | Ethical | Regal"
+  },
+  "stories": {
+    "title": "Stories from the Hive",
+    "subtitlePrefix": "Inside the",
+    "subtitle": "Himalayan Bloom Collective",
+    "description": "Seasonal harvests, terroir tales, and community gatherings captured in motion."
   }
 }

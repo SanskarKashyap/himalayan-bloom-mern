@@ -49,7 +49,7 @@ export class ApiService {
     try {
       const data = await response.json();
       return data?.message ?? response.statusText;
-    } catch (error) {
+    } catch {
       return response.statusText || 'Unexpected API error';
     }
   }
