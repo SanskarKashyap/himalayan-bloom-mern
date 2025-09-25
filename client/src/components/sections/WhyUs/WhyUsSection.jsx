@@ -1,4 +1,5 @@
 import { WHY_US_FEATURES } from '../../../data/whyUs.js';
+import { Link } from 'react-router-dom';
 import SectionHeader from '../../shared/SectionHeader.jsx';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
 
@@ -26,13 +27,13 @@ export default function WhyUsSection() {
                 {t('whyUs.ctaDescription') ??
                   'From hive health tracking to slow, cold extraction, every jar is an ode to Himalayan ecology and ancestral craft.'}
               </p>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="group inline-flex items-center gap-3 rounded-full border border-royal-gold/40 bg-royal-gold/10 px-6 py-3 text-sm font-semibold text-royal-heading transition duration-500 ease-soft-spring hover:-translate-y-0.5 hover:border-royal-gold hover:bg-royal-gold hover:text-royal-night dark:border-white/10 dark:text-royal-white"
               >
                 <span>{t('whyUs.cta')}</span>
                 <i className="bi bi-chevron-right text-base" />
-              </a>
+              </Link>
             </div>
           </div>
 

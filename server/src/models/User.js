@@ -14,6 +14,21 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true,
     },
+    googleId: {
+      type: String,
+      unique: true,
+      sparse: true,
+      index: true,
+    },
+    picture: {
+      type: String,
+      trim: true,
+    },
+    authProvider: {
+      type: String,
+      enum: ['google', 'manual'],
+      default: 'manual',
+    },
   },
   {
     timestamps: true,

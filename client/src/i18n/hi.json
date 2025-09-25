@@ -13,7 +13,14 @@
     "preorderCta": "अभी प्री-ऑर्डर करें",
     "switchLanguage": "भाषा बदलें",
     "toggleMobile": "मोबाइल नेविगेशन चालू करें",
-    "toggleTheme": "थीम बदलें"
+    "toggleTheme": "थीम बदलें",
+    "shop": "शॉप",
+    "stories": "कहानियाँ",
+    "cart": "कार्ट",
+    "shopNow": "अभ खरीदें",
+    "signIn": "साइन इन",
+    "signOut": "साइन आउट",
+    "account": "खाता"
   },
   "hero": {
     "titleAccent": "हिमालयी शहद, ",
@@ -89,7 +96,10 @@
     "rememberLabel": "याद रखें:",
     "rememberCopy": "हर प्री-ऑर्डर में सभी नौ शहद किस्मों की मुफ्त टेस्टिंग किट शामिल है!",
     "cta": "अभी प्री-ऑर्डर करें",
-    "badge": "सीमित बैच"
+    "badge": "सीमित बैच",
+    "viewDetails": "विवरण देखें",
+    "addToCart": "कार्ट में जोड़ें",
+    "viewCart": "कार्ट देखें"
   },
   "testimonials": {
     "title": "प्रशंसापत्र",
@@ -221,5 +231,35 @@
     "subtitlePrefix": "अंदर की झलक",
     "subtitle": "हिमालयन ब्लूम समुदाय",
     "description": "मौसमी फसलें, घाटी की कहानियाँ और समुदाय के समारोह — सब कुछ एक साथ।"
+  },
+  "cart": {
+    "emptyTitle": "आपकी कार्ट खाली है",
+    "emptySubtitle": "अपना पसंदीदा शहद जोड़ने के लिए हमारे संग्रह का अन्वेषण करें।",
+    "shopCta": "दुकान पर वापस जाएं",
+    "titleEyebrow": "आपकी पसंद",
+    "title": "शॉपिंग कार्ट",
+    "decreaseItem": "{name} कम करें",
+    "increaseItem": "{name} बढ़ाएं",
+    "remove": "हटाएं",
+    "continue": "खरीदारी जारी रखें",
+    "clear": "कार्ट खाली करें",
+    "summaryEyebrow": "ऑर्डर सारांश",
+    "summaryTitle": "लगभग आपका",
+    "total": "कुल",
+    "shippingNote": "हर प्री-ऑर्डर में शिपिंग और टेस्टिंग किट शामिल हैं।",
+    "checkout": "चेकआउट जारी रखें",
+    "checkoutPlaceholder": "चेकआउट शीघ्र ही उपलब्ध होगा!"
+  },
+  "product": {
+    "notFoundTitle": "उत्पाद नहीं मिला",
+    "notFoundCopy": "यह शहद कहीं और उड़ गया है। चलिए आपके लिए दूसरा विकल्प ढूंढते हैं।",
+    "back": "वापस जाएं",
+    "shop": "संग्रह देखें",
+    "backToShop": "सभी शहद पर वापस जाएं",
+    "singleOrigin": "एकल-स्रोत फसल",
+    "tastingNotes": "अनुष्ठान और लाभ",
+    "priceLabel": "सदस्य मूल्य",
+    "addToCart": "कार्ट में जोड़ें",
+    "goToCart": "कार्ट पर जाएं"
   }
 }

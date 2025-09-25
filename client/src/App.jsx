@@ -1,23 +1,21 @@
 import { Component } from 'react';
-import Header from './components/layout/Header/Header.jsx';
-import Hero from './components/sections/Hero/Hero.jsx';
-import SpecialOffer from './components/sections/SpecialOffer/SpecialOffer.jsx';
-import AboutSection from './components/sections/About/AboutSection.jsx';
-import WhyUsSection from './components/sections/WhyUs/WhyUsSection.jsx';
-import CollectionSection from './components/sections/Collection/CollectionSection.jsx';
-import TestimonialsSection from './components/sections/Testimonials/TestimonialsSection.jsx';
-import StoriesSection from './components/sections/Stories/StoriesSection.jsx';
-import ArtisansSection from './components/sections/Artisans/ArtisansSection.jsx';
-import PreorderSection from './components/sections/Preorder/PreorderSection.jsx';
-import GallerySection from './components/sections/Gallery/GallerySection.jsx';
-import ContactSection from './components/sections/Contact/ContactSection.jsx';
-import Footer from './components/layout/Footer/Footer.jsx';
-import ScrollTopButton from './components/shared/ScrollTopButton/ScrollTopButton.jsx';
-import Preloader from './components/shared/Preloader/Preloader.jsx';
-import { useAOS } from './hooks/useAOS.js';
-import { useLightbox } from './hooks/useLightbox.js';
+import { Route, Routes } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext.jsx';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
+import { AuthProvider } from './contexts/AuthContext.jsx';
+import { CartProvider } from './contexts/CartContext.jsx';
+import { useAOS } from './hooks/useAOS.js';
+import { useLightbox } from './hooks/useLightbox.js';
+import MainLayout from './layouts/MainLayout.jsx';
+import HomePage from './pages/HomePage.jsx';
+import ShopPage from './pages/ShopPage.jsx';
+import ProductDetailPage from './pages/ProductDetailPage.jsx';
+import AboutPage from './pages/AboutPage.jsx';
+import StoriesPage from './pages/StoriesPage.jsx';
+import GalleryPage from './pages/GalleryPage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
+import CartPage from './pages/CartPage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
 import fallbackHtml from './static-bootstrap/index.html?raw';
 
 import './App.css';
@@ -48,30 +46,24 @@ function FallbackStaticMarkup() {
   return <div dangerouslySetInnerHTML={{ __html: fallbackHtml }} />;
 }
 
-function AppShell() {
+function RoutedApp() {
   useAOS();
   useLightbox({ selector: '.glightbox' });
 
   return (
-    <div className="relative flex min-h-screen flex-col">
-      <Preloader />
-      <Header />
-      <main className="flex flex-col gap-24 sm:gap-28">
-        <Hero />
-        <SpecialOffer />
-        <AboutSection />
-        <WhyUsSection />
-        <CollectionSection />
-        <TestimonialsSection />
-        <StoriesSection />
-        <ArtisansSection />
-        <PreorderSection />
-        <GallerySection />
-        <ContactSection />
-      </main>
-      <Footer />
-      <ScrollTopButton />
-    </div>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="shop" element={<ShopPage />} />
+        <Route path="shop/:slug" element={<ProductDetailPage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="stories" element={<StoriesPage />} />
+        <Route path="gallery" element={<GalleryPage />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="cart" element={<CartPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }
 
@@ -80,7 +72,11 @@ export default function App() {
     <AppErrorBoundary fallback={<FallbackStaticMarkup />}>
       <LanguageProvider>
         <ThemeProvider>
-          <AppShell />
+          <AuthProvider>
+            <CartProvider>
+              <RoutedApp />
+            </CartProvider>
+          </AuthProvider>
         </ThemeProvider>
       </LanguageProvider>
     </AppErrorBoundary>

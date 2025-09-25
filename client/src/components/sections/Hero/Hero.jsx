@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import heroImage from '../../../static-bootstrap/assets/img/hero-img.png';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
 
@@ -43,18 +44,18 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-            <a href="#collection" className="btn-royal text-xs sm:text-sm">
+            <Link to="/shop" className="btn-royal text-xs sm:text-sm">
               {t('hero.ctaPrimary')}
-            </a>
-            <a
-              href="#about"
+            </Link>
+            <Link
+              to="/about"
               className="group inline-flex items-center gap-3 rounded-full border border-royal-gold/40 bg-transparent px-6 py-3 text-sm font-semibold text-royal-heading transition duration-500 ease-soft-spring hover:-translate-y-0.5 hover:border-royal-gold hover:text-royal-gold dark:border-white/10 dark:text-royal-white"
             >
               <span>{videoLabel}</span>
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-royal-gold/20 text-royal-gold transition group-hover:bg-royal-gold group-hover:text-royal-night">
                 <i className="bi bi-play-fill" />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
 

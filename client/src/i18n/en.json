@@ -13,7 +13,14 @@
     "preorderCta": "Pre-order Now",
     "switchLanguage": "Switch language",
     "toggleMobile": "Toggle mobile navigation",
-    "toggleTheme": "Toggle color theme"
+    "toggleTheme": "Toggle color theme",
+    "shop": "Shop",
+    "stories": "Stories",
+    "cart": "Cart",
+    "shopNow": "Shop Now",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "account": "Account"
   },
   "hero": {
     "titleAccent": "Himalayan Honey, ",
@@ -89,7 +96,10 @@
     "rememberLabel": "Remember:",
     "rememberCopy": "Every pre-order includes a complimentary tasting kit of all nine honey varieties!",
     "cta": "Pre-order Now",
-    "badge": "Limited batch"
+    "badge": "Limited batch",
+    "viewDetails": "View details",
+    "addToCart": "Add to cart",
+    "viewCart": "View cart"
   },
   "testimonials": {
     "title": "Testimonials",
@@ -221,5 +231,35 @@
     "subtitlePrefix": "Inside the",
     "subtitle": "Himalayan Bloom Collective",
     "description": "Seasonal harvests, terroir tales, and community gatherings captured in motion."
+  },
+  "cart": {
+    "emptyTitle": "Your cart is empty",
+    "emptySubtitle": "Explore our collection to add your favourite honey varietals.",
+    "shopCta": "Return to Shop",
+    "titleEyebrow": "Your Selection",
+    "title": "Shopping Cart",
+    "decreaseItem": "Decrease {name}",
+    "increaseItem": "Increase {name}",
+    "remove": "Remove",
+    "continue": "Continue shopping",
+    "clear": "Clear cart",
+    "summaryEyebrow": "Order summary",
+    "summaryTitle": "Almost yours",
+    "total": "Total",
+    "shippingNote": "Shipping and tasting kit are included with every pre-order.",
+    "checkout": "Proceed to checkout",
+    "checkoutPlaceholder": "Checkout flow coming soon!"
+  },
+  "product": {
+    "notFoundTitle": "Product not found",
+    "notFoundCopy": "This honey has flown elsewhere. Let’s find you another variety.",
+    "back": "Go back",
+    "shop": "Browse collection",
+    "backToShop": "Back to all honeys",
+    "singleOrigin": "Single-origin harvest",
+    "tastingNotes": "Ritual & benefits",
+    "priceLabel": "Member price",
+    "addToCart": "Add to cart",
+    "goToCart": "Go to cart"
   }
 }

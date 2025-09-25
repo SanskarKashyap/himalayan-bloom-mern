@@ -12,6 +12,7 @@ export const PRODUCTS = [
   {
     slug: 'van-amrit',
     image: menu1,
+    price: 1499,
     alt: {
       en: 'Van Amrit — Wild Honey jar',
       hi: 'वन अमृत — जंगली शहद जार',
@@ -38,6 +39,7 @@ export const PRODUCTS = [
   {
     slug: 'shila-madhu',
     image: menu2,
+    price: 1399,
     alt: {
       en: 'Shila Madhu — Honey Dew Honey jar',
       hi: 'शिला मधु — हनी ड्यू शहद जार',
@@ -64,6 +66,7 @@ export const PRODUCTS = [
   {
     slug: 'him-kanti',
     image: menu3,
+    price: 1599,
     alt: {
       en: 'Him Kanti — White Honey jar',
       hi: 'हिम कांति — सफेद शहद जार',
@@ -90,6 +93,7 @@ export const PRODUCTS = [
   {
     slug: 'kashtha-bal',
     image: menu4,
+    price: 1699,
     alt: {
       en: 'Kashtha Bal — Chestnut Honey jar',
       hi: 'काष्ठ बल — चेस्टनट शहद जार',
@@ -116,6 +120,7 @@ export const PRODUCTS = [
   {
     slug: 'him-saans',
     image: menu5,
+    price: 1499,
     alt: {
       en: 'Him Saans — Thyme Honey jar',
       hi: 'हिम सांस — अजवायन शहद जार',
@@ -142,6 +147,7 @@ export const PRODUCTS = [
   {
     slug: 'banj-kesar',
     image: menu6,
+    price: 1799,
     alt: {
       en: 'Banj Kesar — Oak Honey jar',
       hi: 'बांज केसर — ओक शहद जार',
@@ -168,6 +174,7 @@ export const PRODUCTS = [
   {
     slug: 'buransh-ras',
     image: menu7,
+    price: 1899,
     alt: {
       en: 'Buransh Ras — Rhododendron Honey jar',
       hi: 'बुरांश रस — रोडोडेंड्रॉन शहद जार',
@@ -194,6 +201,7 @@ export const PRODUCTS = [
   {
     slug: 'sarson-tejas',
     image: menu8,
+    price: 1299,
     alt: {
       en: 'Sarson Tejas — Mustard Honey jar',
       hi: 'सरसों तेजस — सरसों का शहद जार',
@@ -220,6 +228,7 @@ export const PRODUCTS = [
   {
     slug: 'kshudhra-madhu',
     image: menu9,
+    price: 1999,
     alt: {
       en: 'Kshudhra Madhu — Stingless Bee Honey jar',
       hi: 'क्षुद्र मधु — डंक रहित मधुमक्खी शहद जार',

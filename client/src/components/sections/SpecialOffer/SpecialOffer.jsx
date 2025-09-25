@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
 
 export default function SpecialOffer() {
@@ -22,9 +23,9 @@ export default function SpecialOffer() {
             <p className="mx-auto max-w-2xl text-lg leading-relaxed text-royal-muted dark:text-royal-white/70">
               {t('specialOffer.description')}
             </p>
-            <a href="#collection" className="btn-royal inline-flex text-xs sm:text-sm">
+            <Link to="/shop" className="btn-royal inline-flex text-xs sm:text-sm">
               {t('specialOffer.cta')}
-            </a>
+            </Link>
             <p className="text-xs uppercase tracking-[0.32em] text-royal-muted/80 dark:text-royal-white/50">
               {t('specialOffer.meta') ?? 'Complimentary tasting kit • Ships March 2025'}
             </p>

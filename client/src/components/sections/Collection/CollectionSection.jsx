@@ -1,9 +1,21 @@
+import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../../../data/products.js';
 import SectionHeader from '../../shared/SectionHeader.jsx';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
+import { useCart } from '../../../contexts/CartContext.jsx';
+
+function formatCurrency(value, locale = 'en') {
+  const formatter = new Intl.NumberFormat(locale === 'hi' ? 'hi-IN' : 'en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    maximumFractionDigits: 0,
+  });
+  return formatter.format(value);
+}
 
 export default function CollectionSection() {
   const { t, locale } = useLanguage();
+  const { addToCart } = useCart();
 
   return (
     <section id="collection" className="py-24 sm:py-28">
@@ -42,19 +54,38 @@ export default function CollectionSection() {
                   <p className="mt-2 text-sm font-medium uppercase tracking-[0.25em] text-royal-gold">
                     {product.tagline[locale]}
                   </p>
+                  <p className="mt-4 text-sm text-royal-muted dark:text-royal-white/70">
+                    {product.uses[locale][0]}
+                  </p>
                 </div>
-                <ul className="space-y-3 text-sm text-royal-muted dark:text-royal-white/70">
-                  {product.uses[locale].map((use, useIndex) => (
-                    <li key={`${product.slug}-use-${useIndex}`} className="flex items-start gap-3">
-                      <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-royal-gold" aria-hidden="true" />
-                      <span>{use}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto pt-2">
-                  <a href="#preorder" className="btn-royal w-full justify-center text-xs">
-                    {t('collection.cta')}
-                  </a>
+
+                <div className="mt-2 flex items-center justify-between">
+                  <span className="text-lg font-semibold text-royal-heading dark:text-royal-white">
+                    {formatCurrency(product.price, locale)}
+                  </span>
+                  <Link
+                    to={`/shop/${product.slug}`}
+                    className="text-xs font-semibold uppercase tracking-[0.32em] text-royal-gold transition hover:text-royal-heading"
+                  >
+                    {t('collection.viewDetails') ?? 'View details'}
+                  </Link>
+                </div>
+
+                <div className="mt-auto flex flex-col gap-3 pt-2">
+                  <button
+                    type="button"
+                    className="btn-royal w-full justify-center text-xs"
+                    onClick={() => addToCart(product.slug, 1)}
+                  >
+                    {t('collection.addToCart') ?? 'Add to cart'}
+                  </button>
+                  <Link
+                    to="/cart"
+                    className="flex items-center justify-center gap-2 rounded-full border border-royal-gold/40 bg-transparent px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-royal-heading transition hover:border-royal-gold hover:text-royal-gold dark:border-white/10 dark:text-royal-white"
+                  >
+                    {t('collection.viewCart') ?? 'View cart'}
+                    <i className="bi bi-chevron-right" />
+                  </Link>
                 </div>
               </div>
             </article>
