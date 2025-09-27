@@ -1,13 +1,13 @@
 {
   "nav": {
     "label": "Primary navigation",
-    "home": "Home",
-    "about": "About",
-    "collection": "Collection",
-    "whyUs": "Why Us",
-    "testimonials": "Testimonials",
-    "wellness": "Wellness",
-    "gallery": "Gallery",
+    "home": "Our Promise",
+    "about": "Our Story",
+    "collection": "Our Honeys",
+    "whyUs": "Why Our Honey",
+    "testimonials": "Customer Stories",
+    "wellness": "Wellness Benefits",
+    "gallery": "From The Hive",
     "contact": "Contact",
     "preorder": "Pre-order",
     "preorderCta": "Pre-order Now",
@@ -144,14 +144,14 @@
     },
     "status": {
       "loading": "Loading",
-      "success": "Thank you! Your pre-order has been received. We've included your FREE tasting kit with all nine honey varieties.",
-      "error": "Something went wrong. Please try again."
+      "success": "Thank you! Your pre-order is confirmed. Your free tasting kit will be included with your shipment.",
+      "error": "There was an issue with your pre-order. Please try again or contact us for help."
     },
-    "cta": "Reserve a Sample & Pre-order",
-    "calloutHighlight": "Delivering first-press honey from 3,400m orchards"
+    "cta": "Reserve My Honey & Free Gift",
+    "calloutHighlight": "Pure, raw honey, delivered from our hives to your home."
   },
   "gallery": {
-    "title": "Gallery",
+    "title": "From The Hive",
     "subtitlePrefix": "Explore",
     "subtitle": "Our Valleys & Harvests",
     "description": "Snapshots from misted orchards, night harvests, and the artisans who tend each hive."
@@ -159,7 +159,7 @@
   "contact": {
     "title": "Contact",
     "subtitlePrefix": "Connect",
-    "subtitle": "With Our Hive",
+    "subtitle": "With Us",
     "address": {
       "title": "Address",
       "line1": "Sample Valley Apiaries",
@@ -193,11 +193,11 @@
     },
     "status": {
       "loading": "Loading",
-      "success": "Your message has been sent. We will get back to you shortly!",
-      "error": "Something went wrong. Please try again."
+      "success": "Thank you for your message. We will get back to you shortly!",
+      "error": "Sorry, we could not send your message. Please try again."
     },
     "cta": "Send Message",
-    "description": "We’re headquartered in Kullu valley with satellite apiaries across Himachal. Reach out for tastings, wholesale, or collaborations.",
+    "description": "Have a question about our purity promise or want to partner with us? We'd love to hear from you.",
     "mapPlaceholder": "Loading valley coordinates"
   },
   "footer": {
@@ -223,13 +223,13 @@
     "followTitle": "Follow Us",
     "copyrightLabel": "Copyright",
     "rights": "All Rights Reserved",
-    "followDescription": "Join our hive for seasonal drops and apiary immersions.",
-    "tagline": "Wild | Ethical | Regal"
+    "followDescription": "Join our community for wellness tips and updates from the hive.",
+    "tagline": "100% Pure • Ethically Sourced • Traditionally Made"
   },
   "stories": {
     "title": "Stories from the Hive",
     "subtitlePrefix": "Inside the",
-    "subtitle": "Himalayan Bloom Collective",
+    "subtitle": "World of Pure Honey",
     "description": "Seasonal harvests, terroir tales, and community gatherings captured in motion."
   },
   "cart": {
@@ -251,13 +251,13 @@
     "checkoutPlaceholder": "Checkout flow coming soon!"
   },
   "product": {
-    "notFoundTitle": "Product not found",
-    "notFoundCopy": "This honey has flown elsewhere. Let’s find you another variety.",
-    "back": "Go back",
-    "shop": "Browse collection",
-    "backToShop": "Back to all honeys",
-    "singleOrigin": "Single-origin harvest",
-    "tastingNotes": "Ritual & benefits",
+    "notFoundTitle": "Honey Not Found",
+    "notFoundCopy": "We couldn't find this honey. Let's help you find the perfect one for your wellness journey.",
+    "back": "Go Back",
+    "shop": "Browse All Honeys",
+    "backToShop": "Back to All Pure Honeys",
+    "singleOrigin": "100% Pure Single-Origin Honey",
+    "tastingNotes": "Traditional Benefits & Daily Use",
     "priceLabel": "Member price",
     "addToCart": "Add to cart",
     "goToCart": "Go to cart"

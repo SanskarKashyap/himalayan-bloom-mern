@@ -2,9 +2,11 @@ import { EVENTS } from '../../../data/events.js';
 import SectionHeader from '../../shared/SectionHeader.jsx';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
 import { useSwiper } from '../../../hooks/useSwiper.js';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 export default function StoriesSection() {
   const { t, locale } = useLanguage();
+  const trackingClass = useTrackingClass();
   useSwiper('#events .init-swiper');
 
   return (
@@ -52,7 +54,7 @@ export default function StoriesSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-royal-night via-royal-night/10 to-transparent" />
                     <div className="relative space-y-4 p-10 text-white">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em]">
+                      <span className={`inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-1 text-xs font-semibold uppercase ${trackingClass('tracking-[0.32em]')}`}>
                         {event.tag[locale]}
                       </span>
                       <h3 className="font-heading text-2xl leading-snug">

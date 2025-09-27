@@ -1,5 +1,6 @@
 import { GoogleLogin } from '@react-oauth/google';
 import { useAuth } from '../../contexts/AuthContext.jsx';
+import { useTrackingClass } from '../../hooks/useTrackingClass.js';
 
 export default function AuthDialog() {
   const {
@@ -11,6 +12,7 @@ export default function AuthDialog() {
     clientId,
     isAuthenticating,
   } = useAuth();
+  const trackingClass = useTrackingClass();
 
   if (!isLoginOpen) {
     return null;
@@ -54,7 +56,7 @@ export default function AuthDialog() {
               text="signin_with"
             />
             {isAuthenticating && (
-              <p className="text-xs uppercase tracking-[0.3em] text-royal-muted dark:text-royal-white/60">
+              <p className={`text-xs uppercase ${trackingClass('tracking-[0.3em]')} text-royal-muted dark:text-royal-white/60`}>
                 Verifying your account…
               </p>
             )}

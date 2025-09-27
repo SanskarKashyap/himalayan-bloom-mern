@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import heroImage from '../../../static-bootstrap/assets/img/hero-img.png';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 export default function Hero() {
   const { t } = useLanguage();
+  const trackingClass = useTrackingClass();
   const rawVideoLabel = t('hero.videoLabel');
   const heroStats = ['Single-origin', '3400m altitude', 'Cold extracted'];
   const computedStats = ['hero.statPurity', 'hero.statAltitude', 'hero.statHarvest'].map((key, index) => {
@@ -25,7 +27,7 @@ export default function Hero() {
 
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-16 px-6 sm:px-10 lg:flex-row lg:gap-20">
         <div className="flex w-full max-w-2xl flex-col items-center text-center lg:items-start lg:text-left">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.38em] text-royal-muted shadow-sm shadow-black/5 backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-royal-white/80">
+          <div className={`inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/70 px-4 py-2 text-xs font-semibold uppercase ${trackingClass('tracking-[0.38em]')} text-royal-muted shadow-sm shadow-black/5 backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-royal-white/80`}>
             {t('hero.meta')}
           </div>
 
@@ -71,7 +73,7 @@ export default function Hero() {
               {computedStats.map((stat) => (
                 <div
                   key={stat}
-                  className="rounded-2xl border border-royal-gold/40 bg-white/80 px-4 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-royal-heading shadow-sm shadow-black/5 dark:border-white/10 dark:bg-white/5 dark:text-royal-white"
+                  className={`rounded-2xl border border-royal-gold/40 bg-white/80 px-4 py-3 text-sm font-semibold uppercase ${trackingClass('tracking-[0.22em]')} text-royal-heading shadow-sm shadow-black/5 dark:border-white/10 dark:bg-white/5 dark:text-royal-white`}
                 >
                   {stat}
                 </div>

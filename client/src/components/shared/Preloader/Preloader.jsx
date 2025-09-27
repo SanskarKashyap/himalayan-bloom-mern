@@ -1,7 +1,9 @@
 import { usePreloader } from '../../../hooks/usePreloader.js';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 export default function Preloader() {
   const isReady = usePreloader(800);
+  const trackingClass = useTrackingClass();
 
   if (isReady) {
     return null;
@@ -15,7 +17,7 @@ export default function Preloader() {
           <span className="absolute inset-0 animate-spin rounded-full border-2 border-royal-gold border-t-transparent" />
           <span className="h-8 w-8 rounded-full bg-royal-gold/20" />
         </div>
-        <p className="text-xs uppercase tracking-[0.32em] text-royal-muted dark:text-royal-white/60">
+        <p className={`text-xs uppercase ${trackingClass('tracking-[0.32em]')} text-royal-muted dark:text-royal-white/60`}>
           Himalayan Blossom
         </p>
       </div>

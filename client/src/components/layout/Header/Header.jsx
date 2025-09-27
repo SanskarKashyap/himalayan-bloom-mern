@@ -5,6 +5,7 @@ import { useScrollPosition } from '../../../hooks/useScrollPosition.js';
 import { useTheme } from '../../../contexts/ThemeContext.jsx';
 import { useCart } from '../../../contexts/CartContext.jsx';
 import { useAuth } from '../../../contexts/AuthContext.jsx';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 const NAV_ITEMS = [
   { to: '/', labelKey: 'nav.home', end: true },
@@ -35,6 +36,7 @@ export default function Header() {
   const location = useLocation();
   const accountMenuRef = useRef(null);
   const accountButtonRef = useRef(null);
+  const trackingClass = useTrackingClass();
 
   const navItems = useMemo(() => NAV_ITEMS, []);
 
@@ -106,7 +108,7 @@ export default function Header() {
           className="flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 shadow-sm shadow-black/5 backdrop-blur transition hover:bg-white dark:bg-white/10 dark:hover:bg-white/20"
         >
           <div className="flex items-center gap-2">
-            <span className="font-heading text-lg font-semibold uppercase tracking-[0.3em] text-royal-heading dark:text-royal-white">
+            <span className={`font-heading text-lg font-semibold uppercase ${trackingClass('tracking-[0.3em]')} text-royal-heading dark:text-royal-white`}>
               Himalayan
             </span>
             <span className="font-heading text-lg font-semibold text-royal-gold">Blossom</span>
@@ -138,7 +140,7 @@ export default function Header() {
           <button
             type="button"
             id="lang-toggle"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-white/70 text-xs font-semibold uppercase tracking-[0.24em] text-royal-heading transition hover:-translate-y-0.5 hover:border-royal-gold hover:text-royal-gold dark:border-white/10 dark:bg-white/10 dark:text-royal-white"
+            className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-white/70 text-xs font-semibold uppercase ${trackingClass('tracking-[0.24em]')} text-royal-heading transition hover:-translate-y-0.5 hover:border-royal-gold hover:text-royal-gold dark:border-white/10 dark:bg-white/10 dark:text-royal-white`}
             aria-label={t('nav.switchLanguage')}
             onClick={toggleLocale}
           >

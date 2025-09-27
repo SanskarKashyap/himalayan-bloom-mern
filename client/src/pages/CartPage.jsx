@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext.jsx';
 import { useLanguage } from '../contexts/LanguageContext.jsx';
+import { useTrackingClass } from '../hooks/useTrackingClass.js';
 
 function formatCurrency(value, locale = 'en') {
   const formatter = new Intl.NumberFormat(locale === 'hi' ? 'hi-IN' : 'en-IN', {
@@ -14,6 +15,7 @@ function formatCurrency(value, locale = 'en') {
 export default function CartPage() {
   const { cartItems, totalPrice, updateQuantity, removeFromCart, clearCart } = useCart();
   const { locale, t } = useLanguage();
+  const trackingClass = useTrackingClass();
 
   if (cartItems.length === 0) {
     return (
@@ -38,7 +40,9 @@ export default function CartPage() {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 sm:px-10 lg:flex-row">
         <div className="flex-1 space-y-6">
           <header>
-            <p className="text-sm uppercase tracking-[0.28em] text-royal-gold">{t('cart.titleEyebrow') ?? 'Your Selection'}</p>
+            <p className={`text-sm uppercase ${trackingClass('tracking-[0.28em]')} text-royal-gold`}>
+              {t('cart.titleEyebrow') ?? 'Your Selection'}
+            </p>
             <h1 className="mt-2 font-heading text-3xl text-royal-heading dark:text-royal-white">
               {t('cart.title') ?? 'Shopping Cart'}
             </h1>
@@ -58,7 +62,7 @@ export default function CartPage() {
                     <p className="font-heading text-lg text-royal-heading dark:text-royal-white">
                       {item.product.name[locale]}
                     </p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.24em] text-royal-gold">
+                    <p className={`mt-1 text-xs uppercase ${trackingClass('tracking-[0.24em]')} text-royal-gold`}>
                       {formatCurrency(item.price, locale)}
                     </p>
                   </div>
@@ -92,7 +96,7 @@ export default function CartPage() {
                     </p>
                     <button
                       type="button"
-                      className="text-xs font-semibold uppercase tracking-[0.32em] text-royal-muted transition hover:text-red-500 dark:text-royal-white/60 dark:hover:text-red-300"
+                      className={`text-xs font-semibold uppercase ${trackingClass('tracking-[0.32em]')} text-royal-muted transition hover:text-red-500 dark:text-royal-white/60 dark:hover:text-red-300`}
                       onClick={() => removeFromCart(item.slug)}
                     >
                       {t('cart.remove') ?? 'Remove'}
@@ -109,7 +113,7 @@ export default function CartPage() {
             </Link>
             <button
               type="button"
-              className="text-xs font-semibold uppercase tracking-[0.32em] text-red-500 transition hover:text-red-600 dark:text-red-400 dark:hover:text-red-300"
+              className={`text-xs font-semibold uppercase ${trackingClass('tracking-[0.32em]')} text-red-500 transition hover:text-red-600 dark:text-red-400 dark:hover:text-red-300`}
               onClick={clearCart}
             >
               {t('cart.clear') ?? 'Clear cart'}
@@ -118,7 +122,9 @@ export default function CartPage() {
         </div>
 
         <aside className="w-full max-w-sm rounded-[2rem] border border-white/60 bg-white/85 p-6 shadow-royal backdrop-blur dark:border-white/10 dark:bg-white/5">
-          <p className="text-sm uppercase tracking-[0.28em] text-royal-gold">{t('cart.summaryEyebrow') ?? 'Order summary'}</p>
+          <p className={`text-sm uppercase ${trackingClass('tracking-[0.28em]')} text-royal-gold`}>
+            {t('cart.summaryEyebrow') ?? 'Order summary'}
+          </p>
           <h2 className="mt-2 font-heading text-2xl text-royal-heading dark:text-royal-white">
             {t('cart.summaryTitle') ?? 'Almost yours'}
           </h2>
@@ -127,7 +133,7 @@ export default function CartPage() {
               <div key={`${item.slug}-summary`} className="flex items-center justify-between">
                 <span>
                   {item.product.name[locale]}
-                  <span className="px-2 text-xs uppercase tracking-[0.24em] text-royal-gold">× {item.quantity}</span>
+                  <span className={`px-2 text-xs uppercase ${trackingClass('tracking-[0.24em]')} text-royal-gold`}>× {item.quantity}</span>
                 </span>
                 <span className="font-semibold text-royal-heading dark:text-royal-white">
                   {formatCurrency(item.subtotal, locale)}

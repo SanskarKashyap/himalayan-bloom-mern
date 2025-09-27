@@ -1,3 +1,5 @@
+import { useTrackingClass } from '../../hooks/useTrackingClass.js';
+
 export default function SectionHeader({
   eyebrow,
   title,
@@ -15,13 +17,15 @@ export default function SectionHeader({
 
   const alignmentClasses = alignments[alignment] ?? alignments.center;
 
+  const trackingClass = useTrackingClass();
+
   return (
     <div
       className={`mx-auto flex max-w-3xl flex-col gap-4 ${alignmentClasses} ${className}`.trim()}
       data-aos="fade-up"
     >
       {eyebrow ? (
-        <span className="inline-flex items-center gap-2 rounded-full border border-royal-gold/30 bg-royal-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.32em] text-royal-muted dark:border-white/10 dark:bg-white/5 dark:text-royal-white/70">
+        <span className={`inline-flex items-center gap-2 rounded-full border border-royal-gold/30 bg-royal-gold/10 px-4 py-1.5 text-xs font-semibold uppercase ${trackingClass('tracking-[0.32em]')} text-royal-muted dark:border-white/10 dark:bg-white/5 dark:text-royal-white/70`}>
           {eyebrow}
         </span>
       ) : null}

@@ -3,6 +3,7 @@ import { PRODUCTS } from '../../../data/products.js';
 import SectionHeader from '../../shared/SectionHeader.jsx';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
 import { useCart } from '../../../contexts/CartContext.jsx';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 function formatCurrency(value, locale = 'en') {
   const formatter = new Intl.NumberFormat(locale === 'hi' ? 'hi-IN' : 'en-IN', {
@@ -16,6 +17,8 @@ function formatCurrency(value, locale = 'en') {
 export default function CollectionSection() {
   const { t, locale } = useLanguage();
   const { addToCart } = useCart();
+  const trackingClass = useTrackingClass();
+  const taglineTrackingClass = trackingClass('tracking-[0.25em]');
 
   return (
     <section id="collection" className="py-24 sm:py-28">
@@ -41,7 +44,7 @@ export default function CollectionSection() {
                   alt={product.alt[locale]}
                   className="mx-auto h-52 w-full object-contain transition duration-700 ease-soft-spring group-hover:scale-105"
                 />
-                <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full border border-royal-gold/40 bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.38em] text-royal-muted/80 shadow-sm shadow-black/5 dark:border-white/10 dark:bg-white/10 dark:text-royal-white/70">
+                <div className={`absolute left-6 top-6 inline-flex items-center gap-2 rounded-full border border-royal-gold/40 bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase ${trackingClass('tracking-[0.38em]')} text-royal-muted/80 shadow-sm shadow-black/5 dark:border-white/10 dark:bg-white/10 dark:text-royal-white/70`}>
                   {t('collection.badge') ?? 'Limited batch'}
                 </div>
               </div>
@@ -51,7 +54,7 @@ export default function CollectionSection() {
                   <h3 className="font-heading text-xl text-royal-heading dark:text-royal-white">
                     {product.name[locale]}
                   </h3>
-                  <p className="mt-2 text-sm font-medium uppercase tracking-[0.25em] text-royal-gold">
+                  <p className={`mt-2 text-sm font-medium uppercase ${taglineTrackingClass} text-royal-gold`}>
                     {product.tagline[locale]}
                   </p>
                   <p className="mt-4 text-sm text-royal-muted dark:text-royal-white/70">
@@ -65,7 +68,7 @@ export default function CollectionSection() {
                   </span>
                   <Link
                     to={`/shop/${product.slug}`}
-                    className="text-xs font-semibold uppercase tracking-[0.32em] text-royal-gold transition hover:text-royal-heading"
+                    className={`text-xs font-semibold uppercase ${trackingClass('tracking-[0.32em]')} text-royal-gold transition hover:text-royal-heading`}
                   >
                     {t('collection.viewDetails') ?? 'View details'}
                   </Link>
@@ -81,7 +84,7 @@ export default function CollectionSection() {
                   </button>
                   <Link
                     to="/cart"
-                    className="flex items-center justify-center gap-2 rounded-full border border-royal-gold/40 bg-transparent px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-royal-heading transition hover:border-royal-gold hover:text-royal-gold dark:border-white/10 dark:text-royal-white"
+                    className={`flex items-center justify-center gap-2 rounded-full border border-royal-gold/40 bg-transparent px-4 py-2 text-xs font-semibold uppercase ${trackingClass('tracking-[0.3em]')} text-royal-heading transition hover:border-royal-gold hover:text-royal-gold dark:border-white/10 dark:text-royal-white`}
                   >
                     {t('collection.viewCart') ?? 'View cart'}
                     <i className="bi bi-chevron-right" />

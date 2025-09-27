@@ -14,8 +14,8 @@
 :root {
   --default-font: "Poppins", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --heading-font: "Playfair Display", "Times New Roman", serif;
-  --nav-font: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --accent-font: "Playfair Display", "Times New Roman", serif;
+  --nav-font: "Poppins", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --accent-font: "Poppins", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -41,6 +41,12 @@
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #211b3f;
   --nav-dropdown-hover-color: #d4af37;
+}
+
+html[lang="hi"] body {
+  --default-font: 'Noto Sans Devanagari', sans-serif;
+  --heading-font: 'Noto Sans Devanagari', sans-serif;
+  --nav-font: 'Noto Sans Devanagari', sans-serif;
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */

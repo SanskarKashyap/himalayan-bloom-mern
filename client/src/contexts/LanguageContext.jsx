@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import en from '../i18n/en.json';
 import hi from '../i18n/hi.json';
 import { LanguageService } from '../services/LanguageService.js';
@@ -22,6 +22,12 @@ export function LanguageProvider({
     instance.setLocale(locale);
     return instance;
   }, [resources, locale, initialLocale]);
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = locale;
+    }
+  }, [locale]);
 
   const toggleLocale = useCallback(() => {
     setLocale((current) => (current === 'en' ? 'hi' : 'en'));

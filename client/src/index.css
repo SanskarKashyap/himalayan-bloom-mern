@@ -72,6 +72,11 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-royal-gold px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-royal-night shadow-royal-soft transition-all duration-500 ease-soft-spring;
   }
 
+  .btn-royal:lang(hi),
+  [lang='hi'] .btn-royal {
+    @apply tracking-normal;
+  }
+
   .btn-royal:hover,
   .btn-royal:focus-visible {
     @apply translate-y-[-3px] bg-amber-400 shadow-royal;

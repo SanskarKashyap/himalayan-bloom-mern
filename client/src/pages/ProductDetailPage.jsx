@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { PRODUCTS } from '../data/products.js';
 import { useLanguage } from '../contexts/LanguageContext.jsx';
 import { useCart } from '../contexts/CartContext.jsx';
+import { useTrackingClass } from '../hooks/useTrackingClass.js';
 
 function formatCurrency(value, locale = 'en') {
   const formatter = new Intl.NumberFormat(locale === 'hi' ? 'hi-IN' : 'en-IN', {
@@ -18,6 +19,8 @@ export default function ProductDetailPage() {
   const navigate = useNavigate();
   const { locale, t } = useLanguage();
   const { addToCart } = useCart();
+  const trackingClass = useTrackingClass();
+  const taglineTrackingClass = trackingClass('tracking-[0.25em]');
 
   const product = useMemo(() => PRODUCTS.find((item) => item.slug === slug), [slug]);
 
@@ -66,13 +69,13 @@ export default function ProductDetailPage() {
 
         <div className="flex-1 space-y-6">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-royal-gold">
+            <p className={`text-xs uppercase ${trackingClass('tracking-[0.32em]')} text-royal-gold`}>
               {t('product.singleOrigin') ?? 'Single-origin harvest'}
             </p>
             <h1 className="mt-2 font-heading text-4xl text-royal-heading dark:text-royal-white">
               {product.name[locale]}
             </h1>
-            <p className="mt-4 text-sm font-medium uppercase tracking-[0.25em] text-royal-gold">
+            <p className={`mt-4 text-sm font-medium uppercase ${taglineTrackingClass} text-royal-gold`}>
               {product.tagline[locale]}
             </p>
             <p className="mt-6 text-base leading-relaxed text-royal-muted dark:text-royal-white/70">
@@ -96,7 +99,9 @@ export default function ProductDetailPage() {
 
           <div className="flex flex-col gap-4 rounded-[2rem] border border-white/60 bg-white/85 p-6 shadow-royal dark:border-white/10 dark:bg-white/5 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.32em] text-royal-gold">{t('product.priceLabel') ?? 'Member price'}</p>
+              <p className={`text-sm uppercase ${trackingClass('tracking-[0.32em]')} text-royal-gold`}>
+                {t('product.priceLabel') ?? 'Member price'}
+              </p>
               <p className="text-2xl font-semibold text-royal-heading dark:text-royal-white">
                 {formatCurrency(product.price, locale)}
               </p>

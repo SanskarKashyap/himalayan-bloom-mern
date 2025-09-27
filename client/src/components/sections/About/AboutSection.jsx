@@ -2,9 +2,11 @@ import aboutImage from '../../../static-bootstrap/assets/img/about.jpg';
 import aboutSecondaryImage from '../../../static-bootstrap/assets/img/about-2.jpg';
 import SectionHeader from '../../shared/SectionHeader.jsx';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 export default function AboutSection() {
   const { t } = useLanguage();
+  const trackingClass = useTrackingClass();
 
   return (
     <section id="about" className="py-24 sm:py-28">
@@ -29,7 +31,7 @@ export default function AboutSection() {
                 <p className="mt-2 text-sm leading-relaxed text-royal-muted dark:text-royal-white/70">
                   {t('about.founderSubtitle')}
                 </p>
-                <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-royal-gold/30 bg-royal-gold/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-royal-gold/80">
+                <div className={`mt-6 inline-flex items-center gap-3 rounded-full border border-royal-gold/30 bg-royal-gold/10 px-4 py-2 text-xs font-semibold uppercase ${trackingClass('tracking-[0.32em]')} text-royal-gold/80`}>
                   {t('about.heritage') ?? 'Apiculture Heritage • Est. 1999'}
                 </div>
               </div>
@@ -70,7 +72,7 @@ export default function AboutSection() {
                     <i className="bi bi-award" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.28em] text-royal-muted/70 dark:text-royal-white/50">
+                    <p className={`text-xs uppercase ${trackingClass('tracking-[0.28em]')} text-royal-muted/70 dark:text-royal-white/50`}>
                       {t('about.badgeLabel') ?? 'SLOW FOOD CERTIFIED'}
                     </p>
                     <p className="font-heading text-lg text-royal-heading dark:text-royal-white">

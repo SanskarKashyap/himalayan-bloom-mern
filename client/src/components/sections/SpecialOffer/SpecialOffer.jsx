@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 export default function SpecialOffer() {
   const { t } = useLanguage();
+  const trackingClass = useTrackingClass();
 
   return (
     <section id="special-offer" className="py-16 sm:py-20">
@@ -11,7 +13,7 @@ export default function SpecialOffer() {
           <div className="pointer-events-none absolute inset-0 z-0">
             <div className="absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-royal-gold/30 blur-3xl" aria-hidden="true" />
             <div className="absolute bottom-0 right-0 h-48 w-48 rounded-full bg-royal-plum/20 blur-3xl" aria-hidden="true" />
-            <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full border border-royal-gold/30 bg-white/80 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-royal-muted shadow-sm shadow-black/5 dark:border-white/10 dark:bg-white/10 dark:text-royal-white/70">
+            <div className={`absolute left-6 top-6 inline-flex items-center gap-2 rounded-full border border-royal-gold/30 bg-white/80 px-4 py-1 text-xs font-semibold uppercase ${trackingClass('tracking-[0.32em]')} text-royal-muted shadow-sm shadow-black/5 dark:border-white/10 dark:bg-white/10 dark:text-royal-white/70`}>
               {t('specialOffer.badge') ?? 'Limited Release'}
             </div>
           </div>
@@ -26,7 +28,7 @@ export default function SpecialOffer() {
             <Link to="/shop" className="btn-royal inline-flex text-xs sm:text-sm">
               {t('specialOffer.cta')}
             </Link>
-            <p className="text-xs uppercase tracking-[0.32em] text-royal-muted/80 dark:text-royal-white/50">
+            <p className={`text-xs uppercase ${trackingClass('tracking-[0.32em]')} text-royal-muted/80 dark:text-royal-white/50`}>
               {t('specialOffer.meta') ?? 'Complimentary tasting kit • Ships March 2025'}
             </p>
           </div>

@@ -1,9 +1,11 @@
 import { ARTISANS } from '../../../data/artisans.js';
 import SectionHeader from '../../shared/SectionHeader.jsx';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 export default function ArtisansSection() {
   const { t, locale } = useLanguage();
+  const trackingClass = useTrackingClass();
 
   return (
     <section id="chefs" className="py-24 sm:py-28">
@@ -30,7 +32,7 @@ export default function ArtisansSection() {
                   className="h-full w-full object-cover transition duration-700 ease-soft-spring group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-royal-night via-transparent to-transparent opacity-70 transition group-hover:opacity-90" />
-                <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-white">
+                <div className={`absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-1 text-xs font-semibold uppercase ${trackingClass('tracking-[0.28em]')} text-white`}>
                   {artisan.role[locale]}
                 </div>
               </div>

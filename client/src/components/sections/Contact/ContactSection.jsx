@@ -3,6 +3,7 @@ import SectionHeader from '../../shared/SectionHeader.jsx';
 import { TextArea, TextInput } from '../../shared/FormControls.jsx';
 import { apiService } from '../../../services/ApiService.js';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 const INITIAL_FORM = {
   name: '',
@@ -17,6 +18,7 @@ export default function ContactSection() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
   const [mapLoaded, setMapLoaded] = useState(false);
+  const trackingClass = useTrackingClass();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,7 +88,7 @@ export default function ContactSection() {
             />
           ) : (
             <div className="flex h-[420px] items-center justify-center bg-royal-night/5 dark:bg-royal-night/50">
-              <span className="text-sm uppercase tracking-[0.32em] text-royal-muted dark:text-royal-white/50">
+              <span className={`text-sm uppercase ${trackingClass('tracking-[0.32em]')} text-royal-muted dark:text-royal-white/50`}>
                 {t('contact.mapPlaceholder') ?? 'Loading valley coordinates'}
               </span>
             </div>

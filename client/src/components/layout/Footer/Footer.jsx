@@ -1,4 +1,5 @@
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 const SOCIAL_LINKS = [
   { id: 'twitter', icon: 'bi-twitter-x', href: '#' },
@@ -9,6 +10,7 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   const { t } = useLanguage();
+  const trackingClass = useTrackingClass();
 
   return (
     <footer id="footer" className="mt-24 border-t border-white/40 bg-royal-night-soft/90 backdrop-blur dark:border-white/10">
@@ -53,7 +55,7 @@ export default function Footer() {
             <strong className="px-1 font-heading text-white">Himalayan Blossom</strong>
             <span>{t('footer.rights')}</span>
           </p>
-          <p className="text-xs uppercase tracking-[0.32em] text-white/50">
+          <p className={`text-xs uppercase ${trackingClass('tracking-[0.32em]')} text-white/50`}>
             {t('footer.tagline') ?? 'Wild | Ethical | Regal'}
           </p>
         </div>

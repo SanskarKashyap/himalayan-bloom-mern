@@ -5,6 +5,7 @@ import { apiService } from '../../../services/ApiService.js';
 import { useLanguage } from '../../../contexts/LanguageContext.jsx';
 import { PRODUCTS } from '../../../data/products.js';
 import { SelectInput, TextArea, TextInput } from '../../shared/FormControls.jsx';
+import { useTrackingClass } from '../../../hooks/useTrackingClass.js';
 
 const INITIAL_FORM = {
   name: '',
@@ -18,6 +19,7 @@ const INITIAL_FORM = {
 
 export default function PreorderSection() {
   const { t, locale } = useLanguage();
+  const trackingClass = useTrackingClass();
   const [formState, setFormState] = useState(INITIAL_FORM);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
@@ -66,7 +68,7 @@ export default function PreorderSection() {
             <img src={reservationImage} alt="Preorder" className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-royal-night via-royal-night/20 to-transparent" />
             <div className="absolute bottom-8 left-8 right-8 rounded-[1.8rem] border border-white/40 bg-white/15 p-6 backdrop-blur-lg text-white">
-              <p className="text-xs uppercase tracking-[0.32em] text-white/80">
+              <p className={`text-xs uppercase ${trackingClass('tracking-[0.32em]')} text-white/80`}>
                 {t('preorder.calloutHeading')}
               </p>
               <p className="mt-2 text-lg font-heading">
