@@ -20,7 +20,8 @@ export default function GallerySection() {
 
       <div className="mt-12 px-2 sm:px-8" data-aos="fade-up" data-aos-delay="120">
         <div className="swiper init-swiper">
-          <div
+          <script
+            type="application/json"
             className="swiper-config"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({

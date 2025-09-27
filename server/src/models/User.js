@@ -29,6 +29,12 @@ const userSchema = new Schema(
       enum: ['google', 'manual'],
       default: 'manual',
     },
+    role: {
+      type: String,
+      enum: ['Admin', 'Consumer'],
+      default: 'Consumer',
+      index: true,
+    },
   },
   {
     timestamps: true,

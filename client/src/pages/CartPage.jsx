@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext.jsx';
 import { useLanguage } from '../contexts/LanguageContext.jsx';
+import { useAuth } from '../contexts/AuthContext.jsx';
+import { apiService } from '../services/ApiService.js';
 import { useTrackingClass } from '../hooks/useTrackingClass.js';
 
 function formatCurrency(value, locale = 'en') {
@@ -15,6 +18,85 @@ function formatCurrency(value, locale = 'en') {
 export default function CartPage() {
   const { cartItems, totalPrice, updateQuantity, removeFromCart, clearCart } = useCart();
   const { locale, t } = useLanguage();
+  const { isAuthenticated, openLogin, user } = useAuth();
+  const [paymentError, setPaymentError] = useState(null);
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+
+  async function loadRazorpayScript() {
+    if (typeof window === 'undefined') {
+      throw new Error('Payment gateway is not available in this environment');
+    }
+
+    if (window.Razorpay) {
+      return window.Razorpay;
+    }
+
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.async = true;
+      script.onload = () => resolve(window.Razorpay);
+      script.onerror = () => reject(new Error('Failed to load payment gateway'));
+      document.body.appendChild(script);
+    });
+  }
+
+  const handleCheckout = async () => {
+    if (!isAuthenticated) {
+      openLogin();
+      return;
+    }
+
+    if (!totalPrice) {
+      return;
+    }
+
+    const razorpayKey = import.meta.env.VITE_RAZORPAY_KEY_ID;
+    if (!razorpayKey) {
+      setPaymentError('Payment gateway is not configured.');
+      return;
+    }
+
+    setIsProcessingPayment(true);
+    setPaymentError(null);
+
+    try {
+      const { order } = await apiService.request('/payments/order', {
+        method: 'POST',
+        body: JSON.stringify({ amount: totalPrice }),
+      });
+
+      if (!order?.id) {
+        throw new Error('Failed to create payment order');
+      }
+
+      const Razorpay = await loadRazorpayScript();
+
+      const checkout = new Razorpay({
+        key: razorpayKey,
+        amount: order.amount,
+        currency: order.currency,
+        name: 'Himalayan Blossom',
+        description: t('cart.paymentDescription') ?? 'Premium Himalayan honey selection',
+        order_id: order.id,
+        prefill: {
+          name: user?.name ?? '',
+          email: user?.email ?? '',
+        },
+        notes: order.notes,
+        theme: {
+          color: '#d4af37',
+        },
+      });
+
+      checkout.open();
+    } catch (error) {
+      console.error('Unable to initiate payment', error);
+      setPaymentError(error.message ?? 'Unable to initiate payment. Please try again.');
+    } finally {
+      setIsProcessingPayment(false);
+    }
+  };
   const trackingClass = useTrackingClass();
 
   if (cartItems.length === 0) {
@@ -148,12 +230,20 @@ export default function CartPage() {
           <p className="mt-3 text-xs text-royal-muted dark:text-royal-white/60">
             {t('cart.shippingNote') ?? 'Shipping and tasting kit are included with every pre-order.'}
           </p>
+          {paymentError && (
+            <p className="mt-4 rounded-2xl border border-red-200/60 bg-red-50/80 px-4 py-3 text-sm text-red-700 dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-200">
+              {paymentError}
+            </p>
+          )}
           <button
             type="button"
             className="btn-royal mt-6 w-full justify-center"
-            onClick={() => window.alert(t('cart.checkoutPlaceholder') ?? 'Checkout flow coming soon!')}
+            onClick={handleCheckout}
+            disabled={isProcessingPayment}
           >
-            {t('cart.checkout') ?? 'Proceed to checkout'}
+            {isProcessingPayment
+              ? t('cart.processingPayment') ?? 'Processing payment…'
+              : t('cart.checkout') ?? 'Proceed to checkout'}
           </button>
         </aside>
       </div>

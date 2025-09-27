@@ -19,7 +19,8 @@ export default function TestimonialsSection() {
 
         <div className="mt-12" data-aos="fade-up" data-aos-delay="120">
           <div className="swiper init-swiper">
-            <div
+            <script
+              type="application/json"
               className="swiper-config"
               dangerouslySetInnerHTML={{
                 __html: JSON.stringify({

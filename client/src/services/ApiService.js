@@ -4,15 +4,27 @@ export class ApiService {
   constructor(baseURL = DEFAULT_BASE_URL, fetchImpl = fetch) {
     this.baseURL = baseURL;
     this.fetchImpl = fetchImpl;
+    this.authToken = null;
+  }
+
+  setAuthToken(token) {
+    this.authToken = token ?? null;
   }
 
   async request(path, options = {}) {
+    const headers = {
+      'Content-Type': 'application/json',
+      ...(options.headers ?? {}),
+    };
+
+    const token = options.token ?? this.authToken;
+    if (token && !headers.Authorization) {
+      headers.Authorization = `Bearer ${token}`;
+    }
+
     const response = await this.fetchImpl(`${this.baseURL}${path}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        ...(options.headers ?? {}),
-      },
       ...options,
+      headers,
     });
 
     if (!response.ok) {

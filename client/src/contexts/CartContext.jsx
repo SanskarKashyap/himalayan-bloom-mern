@@ -1,5 +1,6 @@
 import { createContext, useContext, useMemo, useState, useEffect } from 'react';
 import { PRODUCTS } from '../data/products.js';
+import { useAuth } from './AuthContext.jsx';
 
 const STORAGE_KEY = 'hb_cart_items';
 const CartContext = createContext(undefined);
@@ -25,6 +26,7 @@ function loadInitialCart() {
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(() => loadInitialCart());
+  const { isAuthenticated, openLogin } = useAuth();
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -52,6 +54,11 @@ export function CartProvider({ children }) {
   const totalPrice = useMemo(() => cartItems.reduce((acc, item) => acc + item.subtotal, 0), [cartItems]);
 
   function addToCart(slug, quantity = 1) {
+    if (!isAuthenticated) {
+      openLogin();
+      return;
+    }
+
     if (!PRODUCT_MAP.has(slug)) {
       console.warn('Attempted to add unknown product to cart', slug);
       return;

@@ -1,5 +1,31 @@
 import { OAuth2Client } from 'google-auth-library';
+import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
+
+function getJwtSecret() {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    throw Object.assign(new Error('JWT_SECRET is not configured'), { statusCode: 500 });
+  }
+  return secret;
+}
+
+function resolveRole(email, existingRole) {
+  if (existingRole === 'Admin') {
+    return existingRole;
+  }
+
+  const adminEmails = (process.env.ADMIN_EMAILS ?? '')
+    .split(',')
+    .map((item) => item.trim().toLowerCase())
+    .filter(Boolean);
+
+  if (adminEmails.includes(email.toLowerCase())) {
+    return 'Admin';
+  }
+
+  return 'Consumer';
+}
 
 let oauthClient;
 
@@ -44,9 +70,12 @@ export async function authenticateWithGoogle(req, res, next) {
       authProvider: 'google',
     };
 
+    const existingUser = await User.findOne({ email: userData.email }).lean();
+    const role = resolveRole(userData.email, existingUser?.role);
+
     const user = await User.findOneAndUpdate(
       { email: userData.email },
-      { $set: userData },
+      { $set: { ...userData, role } },
       {
         new: true,
         upsert: true,
@@ -54,12 +83,29 @@ export async function authenticateWithGoogle(req, res, next) {
       }
     ).lean();
 
+    const token = jwt.sign(
+      {
+        sub: user._id.toString(),
+        email: user.email,
+        role: user.role,
+      },
+      getJwtSecret(),
+      {
+        expiresIn: process.env.JWT_EXPIRES_IN ?? '7d',
+      }
+    );
+
     return res.json({
       user,
+      token,
       message: 'Google account verified',
     });
   } catch (error) {
     if (error?.name === 'Error' && error.message === 'Google client ID is not configured') {
+      return res.status(500).json({ message: error.message });
+    }
+
+    if (error?.message === 'JWT_SECRET is not configured') {
       return res.status(500).json({ message: error.message });
     }
 

@@ -220,7 +220,9 @@
       "weekendLabel": "रविवार:",
       "weekendValue": "बंद"
     },
+    "badge": "शुद्ध हिमालयी शहद",
     "followTitle": "हमारा अनुसरण करें",
+    "linksTitle": "त्वरित लिंक",
     "copyrightLabel": "कॉपीराइट",
     "rights": "सभी अधिकार सुरक्षित",
     "followDescription": "कल्याण युक्तियों और छत्ते से अपडेट के लिए हमारे समुदाय में शामिल हों।",
@@ -248,6 +250,8 @@
     "total": "कुल",
     "shippingNote": "हर प्री-ऑर्डर में शिपिंग और टेस्टिंग किट शामिल हैं।",
     "checkout": "चेकआउट जारी रखें",
+    "processingPayment": "भुगतान हो रहा है…",
+    "paymentDescription": "प्रीमियम हिमालयी शहद चयन",
     "checkoutPlaceholder": "चेकआउट शीघ्र ही उपलब्ध होगा!"
   },
   "product": {
