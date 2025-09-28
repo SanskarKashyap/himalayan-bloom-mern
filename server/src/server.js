@@ -11,14 +11,15 @@ const PORT = process.env.PORT || 5000;
 async function startServer() {
   try {
     await connectToDatabase();
-
-    app.listen(PORT, () => {
-      console.log(`API server listening on port ${PORT}`);
-    });
+    console.log('Database connected successfully');
   } catch (error) {
-    console.error('Failed to start server:', error);
+    console.error('Database connection failed. Please verify your MONGODB_URI and network access.');
     process.exit(1);
   }
+
+  app.listen(PORT, () => {
+    console.log(`API server listening on port ${PORT}`);
+  });
 }
 
 startServer();

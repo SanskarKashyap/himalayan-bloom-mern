@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 
 const DEFAULT_URI = 'mongodb://127.0.0.1:27017/mern_boilerplate';
 
+let connectionErrorLogged = false;
+
 export async function connectToDatabase() {
   const uri = process.env.MONGODB_URI ?? DEFAULT_URI;
 
@@ -10,10 +12,26 @@ export async function connectToDatabase() {
   }
 
   mongoose.set('strictQuery', false);
+  mongoose.set('bufferCommands', false);
 
-  await mongoose.connect(uri, {
-    serverSelectionTimeoutMS: 5000,
-  });
+  try {
+    await mongoose.connect(uri, {
+      serverSelectionTimeoutMS: 10000,
+      connectTimeoutMS: 10000,
+    });
 
-  console.log('Connected to MongoDB');
+    mongoose.connection.on('error', (error) => {
+      if (connectionErrorLogged) {
+        return;
+      }
+      connectionErrorLogged = true;
+      console.error('Lost MongoDB connection:', error?.message ?? error);
+    });
+
+    console.log('Connected to MongoDB');
+  } catch (error) {
+    connectionErrorLogged = true;
+    console.error('Failed to connect to MongoDB:', error?.message ?? error);
+    throw error;
+  }
 }
